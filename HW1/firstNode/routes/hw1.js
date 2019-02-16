@@ -8,7 +8,7 @@ router.get('/get', function(req, res, next) {
 
 // POST method route
 router.post('/post', function (req, res) {
-  var user_id = req.param('id');
-  res.send("Hey " + user_id);
+  var user_name = req.param('name');
+  res.send("Hey " + user_name);
 })
 module.exports = router;

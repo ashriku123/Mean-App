@@ -19,8 +19,8 @@ router.post('/', function (req, res) {
     } else {
       console.log(body)
       let weather = JSON.parse(body)
-      if(weather.main == undefined){
-        res.render('index', {weather: null, error: 'Error, please try again'});
+      if(weather.main === undefined){
+        res.render('index', {weather: null, error: 'Error, try again or refresh the page'});
       } else {
         let weatherText = `${weather.name} -> ${weather.main.temp} degrees`;
         res.render('index', {weather: weatherText, error: null});

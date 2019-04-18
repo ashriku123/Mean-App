@@ -13,18 +13,12 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
   }
-  // ppb = localStorage.getItem("ppb");
 
   onSelect(): void {
-    this.weatherService.getPollutants().subscribe(data => {
+    this.weatherService.getTemperature().subscribe(data => {
 
-        // console.log(data['main'].temp)
         this.temperature = (data['main'].temp);
         localStorage.setItem("temp", this.temperature)
-
-        // this.ppb = (data['response']['0']['periods']['0']['pollutants']['0']['valuePPB']);
-        // localStorage.setItem("ppb", this.ppb)
-        console.log(data['response'])
     });
   }
 

@@ -13,7 +13,7 @@ export class WeatherServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getPollutants() {
+  public getTemperature() {
     console.log(this.apiURL + localStorage.getItem('city') + this.apiURL2)
     return this.httpClient.get(this.apiURL + localStorage.getItem('city') + this.apiURL2);
   }

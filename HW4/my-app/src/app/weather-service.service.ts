@@ -5,6 +5,7 @@ import { Temperature } from './temperature';
 @Injectable({
   providedIn: 'root'
 })
+
 export class WeatherServiceService {
 
   apiURL = 'http://api.openweathermap.org/data/2.5/weather?q='

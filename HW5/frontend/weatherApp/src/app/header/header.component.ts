@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
   onLogin() {
     this.http.get('http://localhost:3000/auth/google', { withCredentials: true })
       .subscribe((postData) => {
-        console.log(postData);
         this.authService.login();
       });
   }
@@ -33,7 +32,6 @@ export class HeaderComponent implements OnInit, OnDestroy{
   onLogout() {
     this.http.get('http://localhost:3000/auth/logout', { withCredentials: true })
     .subscribe((postData) => {
-      console.log(postData);
       this.authService.logout();
     });
   }

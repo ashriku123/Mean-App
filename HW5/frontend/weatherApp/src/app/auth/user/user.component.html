@@ -1,5 +1,5 @@
 <mat-accordion *ngIf="userIsAuthenticated && user">
-    <p>Welcome back, {{user.name}}!</p>
+    <p>Welcome, {{user.name}}!</p>
     <input [(ngModel)]="city" type="Text" placeholder="City Name"/>
     <br>
     <button mat-button color="primary" (click)="generateTemp()">Show temp</button>

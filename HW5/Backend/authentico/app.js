@@ -3,6 +3,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
+const weatherRoutes = require('./routes/weather-routes')
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
@@ -11,6 +12,15 @@ const app = express();
 
 // set view engine
 app.set('view engine', 'ejs');
+
+// CORS
+app.use((req,res,next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.setHeader("Access-Control-Allow-Methods","GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 // set up session cookies
 app.use(cookieSession({
@@ -32,6 +42,7 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 // set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/weather',weatherRoutes);
 
 // create home route
 app.get('/', (req, res) => {
